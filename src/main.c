@@ -11,7 +11,6 @@
 #define width 800
 #define height 600
 
-
 int main(void)
 {
   SDL_Window *window = NULL;
@@ -72,11 +71,24 @@ int main(void)
           {
             alive = SDL_TRUE;
             reset_health();
-
-            // Become alive again
+            reset_inventory();
+            // Become alive agai
           }
           break;
         case SDLK_a:
+          add_item(WRENCH);
+          break;
+        case SDLK_b:
+          add_item(SWORD);
+          break;
+        case SDLK_1:
+          remove_item(2);
+          break;
+        case SDLK_2:
+          remove_item(1);
+          break;
+        case SDLK_3:
+          remove_item(0);
           break;
         }
       }
@@ -85,6 +97,7 @@ int main(void)
 
         draw_inventory(window, renderer);
         draw_healthbar(window, renderer);
+        draw_items(window, renderer);
         SDL_RenderPresent(renderer);
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
         SDL_RenderClear(renderer);

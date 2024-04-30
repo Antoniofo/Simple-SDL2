@@ -4,7 +4,7 @@ SRC=src
 OBJ=obj
 SRCS=$(wildcard $(SRC)/*.c)
 OBJS=$(patsubst $(SRC)/%.c, $(OBJ)/%.o, $(SRCS))
-LIBS=`sdl2-config --cflags --static-libs` -lSDL2_image -lSDL2_ttf -lSDL2_mixer
+LIBS=`sdl2-config --cflags --static-libs` -lSDL2_image -lSDL2_ttf
 
 BINDIR=bin
 BIN=$(BINDIR)/main
