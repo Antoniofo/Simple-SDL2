@@ -65,19 +65,23 @@ void draw_items(SDL_Window *window, SDL_Renderer *renderer)
       switch (items[i])
       {
       case WRENCH:
+      {
         SDL_Surface *itemsurWrench = IMG_Load("res/wrench.png");
         itemtex = SDL_CreateTextureFromSurface(renderer, itemsurWrench);
 
         SDL_FreeSurface(itemsurWrench);
         SDL_RenderCopy(renderer, itemtex, NULL, &rect);
         break;
+      }
       case SWORD:
+      {
         SDL_Surface *itemsurSword = IMG_Load("res/sword.png");
         itemtex = SDL_CreateTextureFromSurface(renderer, itemsurSword);
 
         SDL_FreeSurface(itemsurSword);
         SDL_RenderCopy(renderer, itemtex, NULL, &rect);
         break;
+      }
       }
     }
     rect.x -= 74;
@@ -97,10 +101,10 @@ void remove_item(int index)
     }
   }
 }
-void reset_inventory(){
+void reset_inventory()
+{
   for (int i = 0; i < 3; i++)
   {
     items[i] = 0;
   }
-  
 }

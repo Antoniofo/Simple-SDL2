@@ -3,7 +3,6 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
-#include <SDL2/SDL_mixer.h>
 #include "healthbar.h"
 #include "gameover.h"
 #include "inventory.h"
@@ -11,7 +10,7 @@
 #define width 800
 #define height 600
 
-int main(void)
+int main(int argc, char *argv[])
 {
   SDL_Window *window = NULL;
   SDL_Renderer *renderer = NULL;
@@ -60,13 +59,16 @@ int main(void)
         switch (e.key.keysym.sym)
         {
         case SDLK_d:
+        {
           int curr_hp = remove_hp(4);
           if (curr_hp == 0)
           {
             alive = SDL_FALSE;
           }
           break;
+        }
         case SDLK_r:
+        {
           if (alive == SDL_FALSE)
           {
             alive = SDL_TRUE;
@@ -75,6 +77,7 @@ int main(void)
             // Become alive agai
           }
           break;
+        }
         case SDLK_a:
           add_item(WRENCH);
           break;
