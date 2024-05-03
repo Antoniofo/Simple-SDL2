@@ -6,6 +6,7 @@
 #include "healthbar.h"
 #include "gameover.h"
 #include "inventory.h"
+#include "mainscreen.h"
 
 #define width 800
 #define height 600
@@ -38,10 +39,11 @@ int main(int argc, char *argv[])
     fprintf(stderr, "ERR SDL Renderer %s", SDL_GetError());
     return 1;
   }
-
+  init_screen(renderer);
   init_healthbar(renderer);
   init_gameover(renderer);
   init_inventory(renderer);
+  changeText(3);
   SDL_bool alive = SDL_TRUE;
   // SDL_bool alive = SDL_FALSE;
   SDL_Event e;
@@ -93,11 +95,23 @@ int main(int argc, char *argv[])
         case SDLK_3:
           remove_item(0);
           break;
+        case SDLK_4:
+          changeText(1);
+          break;
+        case SDLK_5:
+          changeText(2);
+          break;
+        case SDLK_6:
+          changeText(3);
+          break;
+        case SDLK_7:
+          
+          break;
         }
       }
       if (alive == SDL_TRUE)
       {
-
+        draw_screen(window, renderer);
         draw_inventory(window, renderer);
         draw_healthbar(window, renderer);
         draw_items(window, renderer);

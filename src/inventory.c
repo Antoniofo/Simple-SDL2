@@ -3,6 +3,10 @@
 #include <stdio.h>
 #include "inventory.h"
 
+#define SLOT_OFFSET 69
+#define SLOT_DIMENSION 64
+#define SLOT_SPACE_BETWEEN 74
+
 SDL_Texture *invtex;
 SDL_Texture *itemtex;
 Item items[3] = {};
@@ -11,7 +15,7 @@ void draw_inventory(SDL_Window *window, SDL_Renderer *renderer)
 {
   int *x = malloc(sizeof(int)), *y = malloc(sizeof(int));
   SDL_GetWindowSize(window, x, y);
-  SDL_Rect slot = {*x - 66, *y - 66, 64, 64};
+  SDL_Rect slot = {*x - SLOT_OFFSET, *y - SLOT_OFFSET, SLOT_DIMENSION, SLOT_DIMENSION};
 
   SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 
@@ -19,7 +23,7 @@ void draw_inventory(SDL_Window *window, SDL_Renderer *renderer)
   for (int i = 0; i < 3; i++)
   {
     SDL_RenderCopy(renderer, invtex, NULL, &slot);
-    slot.x -= 74;
+    slot.x -= SLOT_SPACE_BETWEEN;
   }
 }
 void init_inventory(SDL_Renderer *renderer)
@@ -56,7 +60,7 @@ void draw_items(SDL_Window *window, SDL_Renderer *renderer)
 {
   int *x = malloc(sizeof(int)), *y = malloc(sizeof(int));
   SDL_GetWindowSize(window, x, y);
-  SDL_Rect rect = {*x - 66, *y - 66, 64, 64};
+  SDL_Rect rect = {*x - SLOT_OFFSET, *y - SLOT_OFFSET, SLOT_DIMENSION, SLOT_DIMENSION};
 
   for (int i = 0; i < 3; i++)
   {
@@ -84,7 +88,7 @@ void draw_items(SDL_Window *window, SDL_Renderer *renderer)
       }
       }
     }
-    rect.x -= 74;
+    rect.x -= SLOT_SPACE_BETWEEN;
   }
 }
 void remove_item(int index)

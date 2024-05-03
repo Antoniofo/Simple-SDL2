@@ -1,0 +1,3 @@
+This is the first text.
+This is the second text.
+I m gonna write a very long phrase so it can test if my text is wrap inside the window so i need to write a very long text. since this is not already 255 long so im gonna write again until i reach that 255 limit. I am almost done but i just need more wow
