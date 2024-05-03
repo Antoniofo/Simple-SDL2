@@ -10,8 +10,8 @@
  - '2' -> Remove second item
  - '3' -> Remove third item
  - '4' -> Change text to the 1 line of scripts.txt
- - '5' -> Change text to the 1 line of scripts.txt
- - '6' -> Change text to the 1 line of scripts.txt
+ - '5' -> Change text to the 2 line of scripts.txt
+ - '6' -> Change text to the 3 line of scripts.txt
 
 ## Librairies
 
