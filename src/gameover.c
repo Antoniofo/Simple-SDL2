@@ -28,6 +28,8 @@ void draw_gameover(SDL_Window *window, SDL_Renderer *renderer)
   SDL_RenderClear(renderer);
   SDL_RenderCopy(renderer, tex, NULL, &rect);
   SDL_RenderPresent(renderer);
+  free(x);
+  free(y);
 }
 
 void destroy_gameover()

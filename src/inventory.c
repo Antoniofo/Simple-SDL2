@@ -25,6 +25,8 @@ void draw_inventory(SDL_Window *window, SDL_Renderer *renderer)
     SDL_RenderCopy(renderer, invtex, NULL, &slot);
     slot.x -= SLOT_SPACE_BETWEEN;
   }
+  free(x);
+  free(y);
 }
 void init_inventory(SDL_Renderer *renderer)
 {
@@ -90,6 +92,8 @@ void draw_items(SDL_Window *window, SDL_Renderer *renderer)
     }
     rect.x -= SLOT_SPACE_BETWEEN;
   }
+  free(x);
+  free(y);
 }
 void remove_item(int index)
 {

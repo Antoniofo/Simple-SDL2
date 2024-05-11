@@ -43,6 +43,8 @@ void draw_screen(SDL_Window *window, SDL_Renderer *renderer)
   SDL_RenderDrawRect(renderer, &rect);
   rect.w = *x;
   SDL_RenderCopy(renderer, texture, NULL, &rect);
+  free(x);
+  free(y);
 }
 void changeText(int ligne)
 {
@@ -50,4 +52,6 @@ void changeText(int ligne)
 }
 void destroy_sreen()
 {
+  SDL_DestroyTexture(texture);
+  TTF_CloseFont(ubuntu2);
 }

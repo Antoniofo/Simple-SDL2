@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
   init_inventory(renderer);
   changeText(3);
   SDL_bool alive = SDL_TRUE;
-  // SDL_bool alive = SDL_FALSE;
+  //SDL_bool alive = SDL_FALSE;
   SDL_Event e;
   SDL_bool quit = SDL_FALSE;
   while (quit == SDL_FALSE)
@@ -76,7 +76,7 @@ int main(int argc, char *argv[])
             alive = SDL_TRUE;
             reset_health();
             reset_inventory();
-            // Become alive agai
+            // Become alive again
           }
           break;
         }
@@ -127,6 +127,7 @@ int main(int argc, char *argv[])
   }
   destroy_inventory();
   destroy_healthbar();
+  destroy_sreen();
   destroy_gameover();
   SDL_DestroyRenderer(renderer);
   SDL_DestroyWindow(window);
